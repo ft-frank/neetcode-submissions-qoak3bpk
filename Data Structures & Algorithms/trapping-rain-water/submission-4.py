@@ -1,0 +1,34 @@
+"""
+Turn into match how res is calculated. Doing this will allow me 
+to turn the match into code later
+
+"""
+
+
+
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        
+        l = 0
+        r = len(height) - 1
+
+        res = 0
+
+
+        leftMax, rightMax = height[l], height[r]
+
+
+        while l < r:
+
+
+            if leftMax <= rightMax:
+                l += 1
+                leftMax = max(leftMax, height[l])
+                res += leftMax - height[l]
+            else:
+                r-= 1
+                rightMax = max(rightMax, height[r])
+                res += rightMax - height[r]
+
+
+        return res
