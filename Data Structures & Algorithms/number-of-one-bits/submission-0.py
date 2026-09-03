@@ -1,0 +1,10 @@
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        count = 0
+        for i in range(32):
+            remainder = n % 2
+            if remainder == 1:
+                count += 1
+            n = n // 2
+
+        return count
